@@ -8,9 +8,12 @@ function store() {
     let username = document.getElementById('input-username').value;
     let password = document.getElementById('input-password').value;
     let passwordConfirm = document.getElementById('input-password-confirm').value;
-    localStorage.setItem('username', JSON.stringify(username)); //stringify object and store
-    let retrievedUsername = JSON.parse(localStorage.getItem('username')); //retrieve the object
-    let user = { firstname, lastname, username, password }
+    
+    // check data in database 
+    const check = userArray.find(e => e.username === username)
+    
+    // create user 
+    let user = {firstname, lastname, username, password}
 
     if (user.firstname.length == 0) {
         alert('Please fill in first name');
@@ -23,7 +26,7 @@ function store() {
     {
         alert('Please fill in user name');
     } 
-    else if (retrievedUsername === user.username) 
+    else if (check)
     {
         alert('username already exists');
     }
@@ -47,5 +50,7 @@ function store() {
         userArray.push(user)
         localStorage.setItem('userArray', JSON.stringify(userArray));
         alert('Your account has been created');
+        window.location = "http://127.0.0.1:5500/pages/login.html"
     }
+    return false
 }

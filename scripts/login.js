@@ -7,8 +7,9 @@ function check() {
         e.username == username &&
         e.password == userPw
     )
-    console.log(findUser)
+    
     if (findUser) {
+        localStorage.setItem('loginStatus', JSON.stringify(findUser.username))
         window.location = "http://127.0.0.1:5500/pages/news.html"
     } else {
         alert('Error on login');

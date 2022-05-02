@@ -10,3 +10,4 @@ function parseUser(userData) {
 	const user = new User(userData.firstname, userData.lastname, userData.username, userData.password)
 	return user
 }
+
