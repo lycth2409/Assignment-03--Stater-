@@ -9,7 +9,7 @@ function store() {
     let password = document.getElementById('input-password').value;
     let passwordConfirm = document.getElementById('input-password-confirm').value;
     localStorage.setItem('username', JSON.stringify(username)); //stringify object and store
-    var retrievedUsername = JSON.parse(localStorage.getItem('username')); //retrieve the object
+    let retrievedUsername = JSON.parse(localStorage.getItem('username')); //retrieve the object
     let user = { firstname, lastname, username, password }
 
     if (user.firstname.length == 0) {
@@ -23,7 +23,7 @@ function store() {
     {
         alert('Please fill in user name');
     } 
-    else if (re === user.username) 
+    else if (retrievedUsername === user.username) 
     {
         alert('username already exists');
     }
